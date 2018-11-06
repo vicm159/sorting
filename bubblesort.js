@@ -23,9 +23,14 @@
 
 // solution from hw
 function bubbleSort(array) {
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 0; i < array.length; j++) {
-      if (!inOrder(array, j)) swap(array, j);
+  let sorted = false;
+  for (let end = array.length; end > 0 && !sorted; end--) {
+    sorted = true;
+    for (let j = 0; j < end; j++) {
+      if (!inOrder(array, j)) {
+        swap(array, j);
+        sorted = false;
+      }
     }
   }
 
